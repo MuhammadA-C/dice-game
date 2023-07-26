@@ -1,4 +1,13 @@
+/*
+
+
+
+*/
+
 const btn = document.querySelector("#btn");
+const playerOneDice = document.querySelector("#img-player-one");
+const playerTwoDice = document.querySelector("#img-player-two");
+
 let wasTriggered = false;
 
 btn.addEventListener("click", () => {
@@ -10,10 +19,9 @@ btn.addEventListener("click", () => {
   const delayInMiliSeconds = 100;
   wasTriggered = true;
 
-  console.log("Button pressed");
-
   btnHoverEffectOff();
   setTimeout(btnHoverEffectOff, delayInMiliSeconds);
+  setTimeout(playGame, delayInMiliSeconds);
   //Need to reset the boolean so this event listner can be triggered
   setTimeout(resetWasTriggered, delayInMiliSeconds);
 });
@@ -26,8 +34,39 @@ function resetWasTriggered() {
   wasTriggered = false;
 }
 
-/* Note: Will need to add the code that runs the game into a function,
-  then pass that function as a parameter into the setTimeout() funciton
-  to time the delay of another game playing with when the button toggle 
-  effect is added back
-*/
+function randomNumberGenerator() {
+  let diceSize = 6;
+  return Math.floor(Math.random() * diceSize) + 1;
+}
+
+function setDiceImage(playersDice, number) {
+  switch (number) {
+    case 1:
+      playersDice.src = "./images/1 sides.png";
+      break;
+    case 2:
+      playersDice.src = "./images/2 sides.png";
+      break;
+    case 3:
+      playersDice.src = "./images/3 sides.png";
+      break;
+    case 4:
+      playersDice.src = "./images/4 sides.png";
+      break;
+    case 5:
+      playersDice.src = "./images/5 sides.png";
+      break;
+    case 6:
+      playersDice.src = "./images/6 sides.png";
+      break;
+    default:
+      console.log(
+        `Error: number = ${number}. Numbers can only be between 1 - 6`
+      );
+  }
+}
+
+function playGame() {
+  let player1 = randomNumberGenerator();
+  let player2 = randomNumberGenerator();
+}
