@@ -5,13 +5,9 @@ btn.addEventListener("click", () => {
   btnHoverEffectOff();
 
   const delayInMiliSeconds = 100;
-  btnHoverEffectOn(delayInMiliSeconds);
+  setTimeout(btnHoverEffectOff, delayInMiliSeconds);
 });
 
 function btnHoverEffectOff() {
   btn.classList.toggle("hover-effect");
-}
-
-function btnHoverEffectOn(delayInMiliSeconds) {
-  setTimeout(btnHoverEffectOff, delayInMiliSeconds);
 }
