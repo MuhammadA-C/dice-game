@@ -35,7 +35,7 @@ function resetWasTriggered() {
 }
 
 function randomNumberGenerator() {
-  let diceSize = 6;
+  const diceSize = 6;
   return Math.floor(Math.random() * diceSize) + 1;
 }
 
@@ -66,7 +66,23 @@ function setDiceImage(playersDice, number) {
   }
 }
 
+function whoWon(player1, player2) {
+  if (player1 > player2) {
+    console.log("Player1 Wins!");
+  } else if (player1 < player2) {
+    console.log("Player2 Wins!");
+  } else if (player1 === player2) {
+    console.log("You Tied");
+  } else {
+    console.log("Error");
+  }
+}
+
 function playGame() {
   let player1 = randomNumberGenerator();
   let player2 = randomNumberGenerator();
+
+  setDiceImage(playerOneDice, player1);
+  setDiceImage(playerTwoDice, player2);
+  whoWon(player1, player2);
 }
