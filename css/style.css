@@ -51,6 +51,6 @@ button {
   background-color: orange;
 }
 
-button:hover {
-  background-color: rgb(230, 181, 57);
+.hover-effect:hover {
+  background-color: rgb(144, 108, 19);
 }
