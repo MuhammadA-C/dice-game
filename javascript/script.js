@@ -4,9 +4,9 @@
 
 */
 
-const btn = document.querySelector("#btn");
-const playerOneDice = document.querySelector("#img-player-one");
-const playerTwoDice = document.querySelector("#img-player-two");
+const btn = document.querySelector(".button > :first-child");
+const playerOneDice = document.querySelector(".dice > :first-child");
+const playerTwoDice = document.querySelector(".dice > :last-child");
 
 let wasTriggered = false;
 
