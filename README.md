@@ -7,7 +7,7 @@ Name: Muhammad Chambers
 
 Date: 07/26/2023
 
-Overview: This project was inspired by Udemy course "The Complete 2023 Web Development Bootcamp" by Angela Yu.
+**Overview:** This project was inspired by Udemy course "The Complete 2023 Web Development Bootcamp" by Angela Yu.
   
 In Section 17 of this verswion of the course they have you create a similar Dice Game. However,
 the differences between my version and the one in the Udemy course are:
@@ -18,7 +18,7 @@ the differences between my version and the one in the Udemy course are:
   - I added error handling checks just in case
 
 
-Project-Overview: This program allows you to play a Dice Game that randomly rolls two dice. 
+**Project-Overview:** This program allows you to play a Dice Game that randomly rolls two dice. 
 
-Tools: HTML, CSS, JavaScript, Visual Studio Code
+**Tools:** HTML, CSS, JavaScript, Visual Studio Code
 
