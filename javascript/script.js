@@ -4,25 +4,29 @@
 
 */
 
+const winnerAnnouncement = document.querySelector(
+  ".annoucement > :first-child"
+);
 const btn = document.querySelector(".button > :first-child");
 const playerOneDice = document.querySelector(".dice > :first-child");
 const playerTwoDice = document.querySelector(".dice > :last-child");
-
+const diceSize = 6;
 let wasTriggered = false;
 
 btn.addEventListener("click", () => {
+  const delayInMiliSeconds = 100;
+
   //Checks if the event listner was triggered before it was supposed to
   if (wasTriggered) {
     return;
   }
 
-  const delayInMiliSeconds = 100;
   wasTriggered = true;
 
   btnHoverEffectOff();
   setTimeout(btnHoverEffectOff, delayInMiliSeconds);
   setTimeout(playGame, delayInMiliSeconds);
-  //Need to reset the boolean so this event listner can be triggered
+  //Need to reset the boolean so this event listner can be triggered again
   setTimeout(resetWasTriggered, delayInMiliSeconds);
 });
 
@@ -34,8 +38,7 @@ function resetWasTriggered() {
   wasTriggered = false;
 }
 
-function randomNumberGenerator() {
-  const diceSize = 6;
+function generateRandomNumber() {
   return Math.floor(Math.random() * diceSize) + 1;
 }
 
@@ -60,29 +63,48 @@ function setDiceImage(playersDice, number) {
       playersDice.src = "./images/6 sides.png";
       break;
     default:
-      console.log(
-        `Error: number = ${number}. Numbers can only be between 1 - 6`
-      );
+      console.log("Error setting dice image");
   }
 }
 
-function whoWon(player1, player2) {
+function announceWinner(player1, player2) {
   if (player1 > player2) {
+    winnerAnnouncement.textContent = "Player1 Wins!";
     console.log("Player1 Wins!");
   } else if (player1 < player2) {
+    winnerAnnouncement.textContent = "Player2 Wins!";
     console.log("Player2 Wins!");
-  } else if (player1 === player2) {
-    console.log("You Tied");
   } else {
-    console.log("Error");
+    winnerAnnouncement.textContent = "You Tied";
+    console.log("You Tied");
   }
+}
+
+function areNumbersInRange(number1, number2) {
+  if (
+    number1 > diceSize ||
+    number1 <= 0 ||
+    number2 > diceSize ||
+    number2 <= 0
+  ) {
+    return false;
+  }
+  return true;
 }
 
 function playGame() {
-  let player1 = randomNumberGenerator();
-  let player2 = randomNumberGenerator();
+  let player1 = generateRandomNumber();
+  let player2 = generateRandomNumber();
+
+  //Checks to ensure the randomly generated numbers are within range of the dice size
+  if (!areNumbersInRange(player1, player2)) {
+    console.log(
+      `Error: number1 = ${player1}, number2 = ${player2}. Numbers must fall within the range of 1-${diceSize}`
+    );
+    return;
+  }
 
   setDiceImage(playerOneDice, player1);
   setDiceImage(playerTwoDice, player2);
-  whoWon(player1, player2);
+  announceWinner(player1, player2);
 }
