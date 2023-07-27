@@ -2,6 +2,7 @@
 Dice Game is a simple game where 6 sided dice will randomly roll and you win if your number is higher than the computers
 
 Name: Muhammad Chambers
+
 Date: 07/26/2023
 
 Overview: This project was inspired by Udemy course "The Complete 2023 Web Development Bootcamp" by Angela Yu.
