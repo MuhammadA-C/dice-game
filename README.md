@@ -4,6 +4,8 @@ Dice Game is a simple game where 6 sided dice will randomly roll and you win if 
 Name: Muhammad Chambers
 Date: 07/26/2023
 
+Tools: HTML, CSS, JavaScript, Visual Studio Code
+
 Overview: This project was inspired by Udemy course "The Complete 2023 Web Development Bootcamp" by Angela Yu.
   
 In Section 17 of this verswion of the course they have you create a similar Dice Game. However,
